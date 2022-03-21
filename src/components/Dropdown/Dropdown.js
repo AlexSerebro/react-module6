@@ -23,7 +23,7 @@ class Dropdown extends Component {
     return (
       <div className={s.Dropdown}>
         <button type="button" className={s.toogle} onClick={this.toggle}>
-          toggle
+          {this.state.visible ? "Hide" : "Show"}
         </button>
         {/* <button type="button" className={s.toogle} onClick={this.hide}>
           hide
