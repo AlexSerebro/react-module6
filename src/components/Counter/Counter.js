@@ -1,4 +1,5 @@
 import React from "react";
+import Controls from "./Controls";
 import s from "./Counter.module.css";
 
 class Counter extends React.Component {
@@ -36,14 +37,10 @@ class Counter extends React.Component {
     return (
       <div className="Counter">
         <span className="value">{this.state.value}</span>
-        <div className="controls">
-          <button type="button" className="btn" onClick={this.handleIncrement}>
-            +1
-          </button>
-          <button type="button" className="btn" onClick={this.handleDicrement}>
-            -1
-          </button>
-        </div>
+        <Controls
+          onIncriment={this.handleIncrement}
+          onDicriment={this.handleDicrement}
+        />
       </div>
     );
   }
