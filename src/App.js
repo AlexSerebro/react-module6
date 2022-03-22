@@ -1,7 +1,7 @@
 import "./App.css";
 import Counter from "./components/Counter/Counter";
 import Dropdown from "./components/Dropdown/Dropdown";
-import ColorPicker from "./components/ColorPicker/ColorPicker";
+import ColorPicker from "./components/ColorPicker";
 
 const colorPickerOptions = [
   { label: "red", color: "#F44336" },
