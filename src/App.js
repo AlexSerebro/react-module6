@@ -32,13 +32,23 @@ class App extends Component {
 
   render() {
     const { todos } = this.state;
+
+    const completedTodos = todos.reduce(
+      (acc, todo) => (todo.completed ? acc + 1 : acc),
+      0
+    );
     return (
-      <div className="App">
+      <>
         <Counter initialValue={5} />
         <Dropdown />
         <ColorPicker options={colorPickerOptions} />
+        <div>
+          <p>Загальна кількість: {todos.length}</p>
+          <p>Кількість виконаних: {completedTodos}</p>
+        </div>
         <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
-      </div>
+        <div className="App"></div>
+      </>
     );
   }
 }
