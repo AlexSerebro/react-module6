@@ -4,6 +4,7 @@ import Counter from "./components/Counter/Counter";
 import Dropdown from "./components/Dropdown/Dropdown";
 import ColorPicker from "./components/ColorPicker";
 import TodoList from "./components/TodoList";
+import Container from "./components/Container";
 
 const colorPickerOptions = [
   { label: "red", color: "#F44336" },
@@ -22,6 +23,8 @@ class App extends Component {
       { id: "id-3", text: "Todo 3", completed: false },
       { id: "id-4", text: "Todo 4", completed: false },
     ],
+    name: "",
+    tag: "",
   };
 
   deleteTodo = (todoId) => {
@@ -30,15 +33,41 @@ class App extends Component {
     }));
   };
 
+  handChange = (event) => {
+    const { name, value } = event.currentTarget;
+    this.setState({ [name]: value });
+  };
+
   render() {
     const { todos } = this.state;
+    const { name, tag } = this.state;
 
     const completedTodos = todos.reduce(
       (acc, todo) => (todo.completed ? acc + 1 : acc),
       0
     );
     return (
-      <>
+      <Container>
+        <form>
+          <label>
+            Name
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={this.handChange}
+            />
+          </label>
+          <label>
+            Tag
+            <input
+              type="text"
+              name="tag"
+              value={tag}
+              onChange={this.handChange}
+            />
+          </label>
+        </form>
         <Counter initialValue={5} />
         <Dropdown />
         <ColorPicker options={colorPickerOptions} />
@@ -48,7 +77,7 @@ class App extends Component {
         </div>
         <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
         <div className="App"></div>
-      </>
+      </Container>
     );
   }
 }
