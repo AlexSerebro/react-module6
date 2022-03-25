@@ -17,3 +17,7 @@
 .Todo--text {
   margin-right: 5px;
 }
+
+.item--compleated {
+  background-color: green;
+}

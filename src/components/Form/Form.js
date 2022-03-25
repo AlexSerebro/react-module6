@@ -4,6 +4,7 @@ class Form extends Component {
   state = {
     name: "",
     tag: "",
+    licence: false,
   };
 
   handChange = (event) => {
@@ -15,6 +16,11 @@ class Form extends Component {
     event.preventDefault();
     this.props.onSubmit(this.state);
     this.reset();
+  };
+
+  handleLicenceChange = (event) => {
+    console.log(event.currentTarget.checked);
+    this.setState({ licence: event.currentTarget.checked });
   };
 
   reset = () => {
@@ -43,7 +49,20 @@ class Form extends Component {
             onChange={this.handChange}
           />
         </label>
-        <button type="submit">Send</button>
+        <br />
+        <label>
+          <input
+            type="checkbox"
+            name="licence"
+            checked={this.state.licence}
+            onChange={this.handleLicenceChange}
+          />
+          Agree
+        </label>
+
+        <button type="submit" disabled={!this.state.licence}>
+          Send
+        </button>
       </form>
     );
   }

@@ -20,7 +20,7 @@ class App extends Component {
   state = {
     todos: [
       { id: "id-1", text: "Todo 1", completed: false },
-      { id: "id-2", text: "Todo 2", completed: true },
+      { id: "id-2", text: "Todo 2", completed: false },
       { id: "id-3", text: "Todo 3", completed: false },
       { id: "id-4", text: "Todo 4", completed: false },
     ],
@@ -29,6 +29,24 @@ class App extends Component {
   deleteTodo = (todoId) => {
     this.setState((prevState) => ({
       todos: prevState.todos.filter((todo) => todo.id !== todoId),
+    }));
+  };
+
+  toggleCompleted = (todoId) => {
+    // this.setState((prevState) => ({
+    //   todos: prevState.todos.map((todo) => {
+    //     if (todo.id === todoId) {
+    //       return {
+    //         ...todo,
+    //         completed: !todo.completed,
+    //       };
+    //     }
+    //     return todo;
+    //   }),
+    this.setState(({ todos }) => ({
+      todos: todos.map((todo) =>
+        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+      ),
     }));
   };
 
@@ -53,7 +71,11 @@ class App extends Component {
           <p>Загальна кількість: {todos.length}</p>
           <p>Кількість виконаних: {completedTodos}</p>
         </div>
-        <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
+        <TodoList
+          todos={todos}
+          onDeleteTodo={this.deleteTodo}
+          onToggleCompleted={this.toggleCompleted}
+        />
         <div className="App"></div>
       </Container>
     );
