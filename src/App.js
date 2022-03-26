@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { Component } from "react";
+import shortid from "shortid";
 import Counter from "./components/Counter/Counter";
 import Dropdown from "./components/Dropdown/Dropdown";
 import ColorPicker from "./components/ColorPicker";
@@ -16,15 +17,28 @@ const colorPickerOptions = [
   { label: "pink", color: "#E91E63" },
   { label: "indigo", color: "#3F51B5" },
 ];
+const initialTodo = [
+  { id: "id-1", text: "Todo 1", completed: false },
+  { id: "id-2", text: "Todo 2", completed: false },
+  { id: "id-3", text: "Todo 3", completed: false },
+  { id: "id-4", text: "Todo 4", completed: false },
+];
 
 class App extends Component {
   state = {
-    todos: [
-      { id: "id-1", text: "Todo 1", completed: false },
-      { id: "id-2", text: "Todo 2", completed: false },
-      { id: "id-3", text: "Todo 3", completed: false },
-      { id: "id-4", text: "Todo 4", completed: false },
-    ],
+    todos: initialTodo,
+  };
+
+  addTodo = (text) => {
+    console.log(text);
+    const todo = {
+      id: shortid.generate(),
+      text, //like text: text;
+      completed: false,
+    };
+    this.setState((prevState) => ({
+      todos: [...prevState.todos, todo],
+    }));
   };
 
   deleteTodo = (todoId) => {
@@ -73,7 +87,7 @@ class App extends Component {
           <p>Кількість виконаних: {completedTodos}</p>
         </div>
 
-        <TodoEditor />
+        <TodoEditor onSubmit={this.addTodo} />
         <TodoList
           todos={todos}
           onDeleteTodo={this.deleteTodo}
