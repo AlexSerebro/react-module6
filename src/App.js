@@ -8,6 +8,7 @@ import TodoList from "./components/TodoList";
 import Container from "./components/Container";
 import Form from "./components/Form";
 import TodoEditor from "./TodoEditor";
+import Filter from "./components/Filter";
 
 const colorPickerOptions = [
   { label: "red", color: "#F44336" },
@@ -27,6 +28,7 @@ const initialTodo = [
 class App extends Component {
   state = {
     todos: initialTodo,
+    filter: "",
   };
 
   addTodo = (text) => {
@@ -69,13 +71,29 @@ class App extends Component {
     console.log(data);
   };
 
-  render() {
-    const { todos } = this.state;
+  changeFilter = (e) => {
+    this.setState({ filter: e.currentTarget.value });
+  };
 
-    const completedTodos = todos.reduce(
-      (acc, todo) => (todo.completed ? acc + 1 : acc),
-      0
+  getVisibleTodos = () => {
+    const { todos, filter } = this.state;
+    const normalazedFilter = filter.toLowerCase();
+    console.log("~ normalazedFilter", normalazedFilter);
+    return todos.filter((todo) =>
+      todo.text.toLowerCase().includes(normalazedFilter)
     );
+  };
+
+  calculateCompleatedTodos = () => {
+    const { todos } = this.state;
+    return todos.reduce((acc, todo) => (todo.completed ? acc + 1 : acc), 0);
+  };
+
+  render() {
+    const { todos, filter } = this.state;
+    const completedTodos = this.calculateCompleatedTodos();
+    const vizibleTodos = this.getVisibleTodos();
+
     return (
       <Container>
         <Form onSubmit={this.formSubmitHandler} />
@@ -88,8 +106,9 @@ class App extends Component {
         </div>
 
         <TodoEditor onSubmit={this.addTodo} />
+        <Filter value={filter} onChange={this.changeFilter} />
         <TodoList
-          todos={todos}
+          todos={vizibleTodos}
           onDeleteTodo={this.deleteTodo}
           onToggleCompleted={this.toggleCompleted}
         />
