@@ -6,6 +6,7 @@ import ColorPicker from "./components/ColorPicker";
 import TodoList from "./components/TodoList";
 import Container from "./components/Container";
 import Form from "./components/Form";
+import TodoEditor from "./TodoEditor";
 
 const colorPickerOptions = [
   { label: "red", color: "#F44336" },
@@ -71,6 +72,8 @@ class App extends Component {
           <p>Загальна кількість: {todos.length}</p>
           <p>Кількість виконаних: {completedTodos}</p>
         </div>
+
+        <TodoEditor />
         <TodoList
           todos={todos}
           onDeleteTodo={this.deleteTodo}
