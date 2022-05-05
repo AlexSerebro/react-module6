@@ -67,9 +67,9 @@ class App extends Component {
     }));
   };
 
-  formSubmitHandler = (data) => {
-    console.log(data);
-  };
+  // formSubmitHandler = (data) => {
+  //   console.log(data);
+  // };
 
   changeFilter = (e) => {
     this.setState({ filter: e.currentTarget.value });
@@ -96,10 +96,10 @@ class App extends Component {
 
     return (
       <Container>
-        <Form onSubmit={this.formSubmitHandler} />
+        {/* <Form onSubmit={this.formSubmitHandler} />
         <Counter initialValue={5} />
         <Dropdown />
-        <ColorPicker options={colorPickerOptions} />
+        <ColorPicker options={colorPickerOptions} /> */}
         <div>
           <p>Загальна кількість: {todos.length}</p>
           <p>Кількість виконаних: {completedTodos}</p>
@@ -112,7 +112,7 @@ class App extends Component {
           onDeleteTodo={this.deleteTodo}
           onToggleCompleted={this.toggleCompleted}
         />
-        <div className="App"></div>
+
       </Container>
     );
   }
