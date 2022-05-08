@@ -1,0 +1,21 @@
+.Todo__button {
+  height: 30px;
+}
+
+.Todo__text {
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+.item__compleated {
+  background-color: green;
+
+}
+
+.listItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  
+}
