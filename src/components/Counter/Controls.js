@@ -1,8 +1,9 @@
 import React from "react";
+import s from './Counter.module.css'
 
 const Controls = ({ onDicriment, onIncriment }) => {
   return (
-    <div className="controls">
+    <div className={s.controls}>
       <button type="button" className="btn" onClick={onIncriment}>
         +1
       </button>

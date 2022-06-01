@@ -135,21 +135,21 @@ class App extends Component {
 
     return (
       <Container>
-        <Clock />
-        <Tabs items={ tabs}/>
-        <IconButton onClick={this.toggleModal} aria-label='Add Todo'>
+        {/* <Clock /> */}
+        {/* <Tabs items={ tabs}/> */}
+        {/* <IconButton onClick={this.toggleModal} aria-label='Add Todo'>
           <AddIcon width='40' height='40' fill='#000'/>
         </IconButton>
         {showModal && <Modal onClose={this.toggleModal}>
           <TodoEditor onSubmit={this.addTodo} />
           
-        </Modal>}
+        </Modal>} */}
         
-        {/* <Form onSubmit={this.formSubmitHandler} />
+        {/* <Form onSubmit={this.formSubmitHandler} /> */}
         <Counter initialValue={5} />
-        <Dropdown />
+        {/* <Dropdown />
         <ColorPicker options={colorPickerOptions} /> */}
-        <div>
+        {/* <div>
           <p>Загальна кількість: {todos.length}</p>
           <p>Кількість виконаних: {completedTodos}</p>
         </div>
@@ -158,7 +158,7 @@ class App extends Component {
           todos={vizibleTodos}
           onDeleteTodo={this.deleteTodo}
           onToggleCompleted={this.toggleCompleted}
-        />
+        /> */}
 
       </Container>
     );
