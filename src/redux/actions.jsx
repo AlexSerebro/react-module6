@@ -3,7 +3,7 @@ export const increment = value => ({
   payload: value,
 });
 
-export const dencrement = value => ({
-  type: 'counter/dencrement',
+export const decrement = value => ({
+  type: 'counter/decrement',
   payload: value,
 });

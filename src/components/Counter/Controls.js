@@ -1,14 +1,14 @@
 import React from "react";
 import s from './Counter.module.css'
 
-const Controls = ({ onDicriment, onIncriment }) => {
+const Controls = ({ step, onDicriment, onIncriment }) => {
   return (
     <div className={s.controls}>
       <button type="button" className="btn" onClick={onIncriment}>
-        +1
+        збільшити на {step}
       </button>
       <button type="button" className="btn" onClick={onDicriment}>
-        -1
+        зменшити на {step}
       </button>
     </div>
   );

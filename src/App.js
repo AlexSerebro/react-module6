@@ -146,7 +146,7 @@ class App extends Component {
         </Modal>} */}
         
         {/* <Form onSubmit={this.formSubmitHandler} /> */}
-        <Counter initialValue={5} />
+        <Counter />
         {/* <Dropdown />
         <ColorPicker options={colorPickerOptions} /> */}
         {/* <div>

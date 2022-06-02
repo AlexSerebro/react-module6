@@ -1,14 +1,31 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension'
 
-const initialState = { counterValue: 0 }
+const initialState = { 
+  counter: {
+    value: 0,
+    step: 1,
+  }
+}
 
 const reducer = (state = initialState, {type, payload}) => {
   switch (type) {
-    case 'counter/inctement':
-      return { counterValue: state.counterValue + payload, };
+    case 'counter/increment':
+      return {
+        ...state,
+        counter: {
+          ...state.counter,
+          value: state.counter.value + payload
+        },
+      };
       break;
-    case 'counter/denctement':
-      return { counterValue: state.counterValue - payload, };
+    case 'counter/decrement':
+      return {
+        ...state,
+        counter: {
+          ...state.counter,
+          value: state.counter.value - payload
+        }, };
       break;
     
     default:
@@ -16,6 +33,6 @@ const reducer = (state = initialState, {type, payload}) => {
   }
 };
 
-const store = createStore(reducer );
+const store = createStore(reducer, composeWithDevTools() );
 
 export default store;
