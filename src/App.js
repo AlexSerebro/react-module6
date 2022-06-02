@@ -2,19 +2,19 @@ import "./App.css";
 import React, { Component } from "react";
 import shortid from "shortid";
 import Counter from "./components/Counter/Counter";
-import Dropdown from "./components/Dropdown/Dropdown";
-import ColorPicker from "./components/ColorPicker";
-import TodoList from "./components/TodoList";
+// import Dropdown from "./components/Dropdown/Dropdown";
+// import ColorPicker from "./components/ColorPicker";
+// import TodoList from "./components/TodoList";
 import Container from "./components/Container";
-import Form from "./components/Form";
-import TodoEditor from "./TodoEditor";
-import Filter from "./components/Filter";
-import { Modal } from "./components/Modal";
-import { Clock } from './components/Clock'
-import Tabs from "./components/Tabs";
-import { IconButton } from "./components/IconButton";
-import tabs from './tabs.json'
-import { ReactComponent as AddIcon } from "./icons/add.svg";
+// import Form from "./components/Form";
+// import TodoEditor from "./TodoEditor";
+// import Filter from "./components/Filter";
+// import { Modal } from "./components/Modal";
+// import { Clock } from './components/Clock'
+// import Tabs from "./components/Tabs";
+// import { IconButton } from "./components/IconButton";
+// import tabs from './tabs.json'
+// import { ReactComponent as AddIcon } from "./icons/add.svg";
 
 const colorPickerOptions = [
   { label: "red", color: "#F44336" },
